@@ -14,7 +14,7 @@ my @linesstandard;
 #check command line
 foreach my $argument (@ARGV) {
   if ($argument =~ /\Q$substringh\E/) {
-    print "extrafiles v0.5 - Utility to compare the filenames in two directories, the source and standard directories.\n";
+    print "extrafiles v0.6 - Utility to compare the filenames in two directories, the source and standard directories.\n";
     print "                  Then move extra files from the source directory to source ../extra that do not have\n";
     print "                  matching filenames in the standard directory.\n";
     print "\n";
@@ -66,7 +66,7 @@ if ($extradir eq "" or $standarddir eq "") {
 my $dirname = $extradir;
 opendir(DIR, $dirname) or die "Could not open $dirname\n";
 while (my $filename = readdir(DIR)) {
-  if (-d $filename) {
+  if (-d $dirname . "/" . $filename) {
     next;
   } else {
     push(@linesextra, $filename) unless $filename eq '.' or $filename eq '..';
@@ -78,7 +78,7 @@ closedir(DIR);
 $dirname = $standarddir;
 opendir(DIR, $dirname) or die "Could not open $dirname\n";
 while (my $filename = readdir(DIR)) {
-  if (-d $filename) {
+  if (-d $dirname . "/" . $filename) {
     next;
   } else {
     push(@linesstandard, $filename) unless $filename eq '.' or $filename eq '..';

@@ -1,4 +1,4 @@
-extrafiles v0.5 - Utility to compare the filenames in two directories, the source and standard directories.
+extrafiles v0.6 - Utility to compare the filenames in two directories, the source and standard directories.
                   Then move extra files from the source directory to source ../extra that do not have
                   matching filenames in the standard directory.
 
